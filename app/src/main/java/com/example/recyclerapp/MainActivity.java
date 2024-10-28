@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view); // Cambié main a recycler_view
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
 
         List<Item> items = new ArrayList<>();
         // Pizzas
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Hamburguesa con Bacon", "Hamburguesa con bacon crujiente y queso cheddar", R.drawable.hamburguesa_bacon, "Hamburguesa"));
 
         // Ensaladas
-        /*items.add(new Item("Ensalada César", "Lechuga, pollo, crutones y aderezo César", R.drawable.ensalada_cesar, "Ensalada"));
+        items.add(new Item("Ensalada César", "Lechuga, pollo, crutones y aderezo César", R.drawable.ensalada_cesar, "Ensalada"));
         items.add(new Item("Ensalada Mediterránea", "Tomate, pepino, aceitunas y queso feta", R.drawable.ensalada_mediterranea, "Ensalada"));
         items.add(new Item("Ensalada de Atún", "Lechuga, atún, cebolla y aceitunas", R.drawable.ensalada_atun, "Ensalada"));
         items.add(new Item("Ensalada de Quinoa", "Quinoa, aguacate, tomate y pepino", R.drawable.ensalada_quinoa, "Ensalada"));
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         items.add(new Item("Ensalada de Garbanzos", "Garbanzos, pimientos, cebolla y perejil", R.drawable.ensalada_garbanzos, "Ensalada"));
         items.add(new Item("Ensalada de Espinacas", "Espinacas, fresas y nueces con vinagreta", R.drawable.ensalada_espinacas, "Ensalada"));
         items.add(new Item("Ensalada Oriental", "Lechuga, zanahoria, pollo y salsa de sésamo", R.drawable.ensalada_oriental, "Ensalada"));
-        items.add(new Item("Ensalada de Col", "Col, zanahoria y mayonesa", R.drawable.ensalada_col, "Ensalada"));*/
+        items.add(new Item("Ensalada de Col", "Col, zanahoria y mayonesa", R.drawable.ensalada_col, "Ensalada"));
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

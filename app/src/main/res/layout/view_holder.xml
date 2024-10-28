@@ -6,8 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/imagen"
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true" />
@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/imagen"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:text="Nombre"/>
 
