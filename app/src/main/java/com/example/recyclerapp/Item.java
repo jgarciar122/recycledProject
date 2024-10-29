@@ -5,7 +5,7 @@ public class Item {
     String nombre;
     String descripcion;
     int image;
-    String tipo; // Nuevo atributo
+    String tipo;
 
     public String getNombre() {
         return nombre;
@@ -43,6 +43,6 @@ public class Item {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.image = image;
-        this.tipo = tipo; // Inicialización del nuevo atributo
+        this.tipo = tipo;
     }
 }
