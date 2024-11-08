@@ -1,0 +1,49 @@
+package com.example.recyclerapp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Comida {
+
+    public static List<Item> pizzas = new ArrayList<>();
+    public static List<Item> hamburguesas = new ArrayList<>();
+    public static List<Item> ensaladas = new ArrayList<>();
+
+    static {
+        // Pizzas
+        pizzas.add(new Item("Pizza Margherita", "Pizza con tomate, mozzarella y albahaca", R.drawable.pizza_margarita, "Pizza"));
+        pizzas.add(new Item("Pizza Pepperoni", "Pizza con salsa de tomate, mozzarella y pepperoni", R.drawable.pizza_peperoni, "Pizza"));
+        pizzas.add(new Item("Pizza Cuatro Quesos", "Pizza con mozzarella, gorgonzola, parmesano y ricotta", R.drawable.pizza_cuatroquesos, "Pizza"));
+        pizzas.add(new Item("Pizza Hawaiana", "Pizza con tomate, mozzarella, jamón y piña", R.drawable.pizza_hawaiana, "Pizza"));
+        pizzas.add(new Item("Pizza Vegetariana", "Pizza con tomate, mozzarella y verduras frescas", R.drawable.pizza_vegetariana, "Pizza"));
+        pizzas.add(new Item("Pizza BBQ", "Pizza con salsa BBQ, pollo y cebolla morada", R.drawable.pizza_barbacoa, "Pizza"));
+        pizzas.add(new Item("Pizza Carbonara", "Pizza con crema, bacon, huevo y parmesano", R.drawable.pizza_carbonara, "Pizza"));
+        pizzas.add(new Item("Pizza con Anchoas", "Pizza con tomate, mozzarella y anchoas", R.drawable.pizza_anchoas, "Pizza"));
+        pizzas.add(new Item("Pizza de Pollo al Pesto", "Pizza con pollo, pesto y mozzarella", R.drawable.pizza_pollo_pesto, "Pizza"));
+        pizzas.add(new Item("Pizza de Champiñones", "Pizza con tomate, mozzarella y champiñones", R.drawable.pizza_champiniones, "Pizza"));
+
+        // Hamburguesas
+        hamburguesas.add(new Item("Hamburguesa Clásica", "Carne de res con lechuga, tomate y cebolla", R.drawable.hamburguesa_clasica, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa BBQ", "Hamburguesa con salsa BBQ, cebolla caramelizada y queso cheddar", R.drawable.hamburguesa_bbq, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa Vegetariana", "Hamburguesa de garbanzos con lechuga y aguacate", R.drawable.hamburguesa_vegana, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa con Huevo", "Hamburguesa con carne, huevo frito y queso", R.drawable.hamburguesa_huevo, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa Picante", "Hamburguesa con jalapeños y salsa picante", R.drawable.hamburguesa_picante, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa Deluxe", "Hamburguesa con doble carne, queso y bacon", R.drawable.hamburguesa_deluxe, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa Caprese", "Hamburguesa con mozzarella, albahaca y tomate", R.drawable.hamburguesa_caprese, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa con Champiñones", "Hamburguesa con champiñones salteados y queso suizo", R.drawable.hamburguesa_champiniones, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa con Guacamole", "Hamburguesa con guacamole y jalapeños", R.drawable.hamburguesa_guacamole, "Hamburguesa"));
+        hamburguesas.add(new Item("Hamburguesa con Bacon", "Hamburguesa con bacon crujiente y queso cheddar", R.drawable.hamburguesa_bacon, "Hamburguesa"));
+
+        // Ensaladas
+        ensaladas.add(new Item("Ensalada César", "Lechuga, pollo, crutones y aderezo César", R.drawable.ensalada_cesar, "Ensalada"));
+        ensaladas.add(new Item("Ensalada Mediterránea", "Tomate, pepino, aceitunas y queso feta", R.drawable.ensalada_mediterranea, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Atún", "Lechuga, atún, cebolla y aceitunas", R.drawable.ensalada_atun, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Quinoa", "Quinoa, aguacate, tomate y pepino", R.drawable.ensalada_quinoa, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Frutas", "Frutas frescas con miel y limón", R.drawable.ensalada_frutas, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Pollo", "Pollo a la parrilla, lechuga y aderezo de mostaza", R.drawable.ensalada_pollo, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Garbanzos", "Garbanzos, pimientos, cebolla y perejil", R.drawable.ensalada_garbanzos, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Espinacas", "Espinacas, fresas y nueces con vinagreta", R.drawable.ensalada_espinacas, "Ensalada"));
+        ensaladas.add(new Item("Ensalada Oriental", "Lechuga, zanahoria, pollo y salsa de sésamo", R.drawable.ensalada_oriental, "Ensalada"));
+        ensaladas.add(new Item("Ensalada de Col", "Col, zanahoria y mayonesa", R.drawable.ensalada_col, "Ensalada"));
+    }
+}

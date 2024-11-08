@@ -1,15 +1,19 @@
 package com.example.recyclerapp;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,18 +25,35 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle("Inicio");
 
+        // Configurar el TabLayout y ViewPager2
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tablayout);
+
+        // Configurar el adaptador de ViewPager2
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(adapter);
+
+        // Conectar el TabLayout con el ViewPager2
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            switch (position) {
+                case 0:
+                    tab.setText("Pizzas");
+                    break;
+                case 1:
+                    tab.setText("Hamburguesas");
+                    break;
+                case 2:
+                    tab.setText("Ensaladas");
+                    break;
+            }
+        }).attach();
+
         // Configurar el BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        // Configura el listener para cambiar a PrimerFragment cuando se seleccione "Home"
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            Fragment selectedFragment = null;
             if (item.getItemId() == R.id.navigation_home) {
-                selectedFragment = new PrimerFragment();
+                viewPager.setCurrentItem(0);  // Cambiar al tab de Pizzas como "Inicio"
                 toolbar.setTitle("Inicio");
-            }
-            if (selectedFragment != null) {
-                showFragment(selectedFragment);
             }
             return true;
         });
@@ -41,12 +62,5 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         }
-    }
-
-    private void showFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment);
-        fragmentTransaction.commit();
     }
 }

@@ -8,6 +8,13 @@ public class Item {
     int image;
     String tipo;
 
+    public Item(String nombre, String descripcion, int image, String tipo) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.image = image;
+        this.tipo = tipo;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -40,10 +47,5 @@ public class Item {
         this.tipo = tipo; // Método para establecer el tipo
     }
 
-    public Item(String nombre, String descripcion, int image, String tipo) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.image = image;
-        this.tipo = tipo;
-    }
+
 }
