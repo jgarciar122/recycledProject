@@ -1,52 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
+        android:id="@+id/imagen"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:id="@+id/imagen"
         android:layout_marginRight="10dp"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/imageViewFavorito"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/favorito" />
 
     <TextView
         android:id="@+id/nombre"
-        android:textSize="25dp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/imagen"
+        android:layout_toStartOf="@id/imageViewFavorito"
+        android:layout_marginEnd="10dp"
+        android:text="Nombre"
+        android:textSize="25sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:text="Nombre"/>
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/descrip"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/nombre"
-        android:textSize="20dp"
         android:layout_toEndOf="@id/imagen"
+        android:layout_toStartOf="@id/imageViewFavorito"
+        android:layout_marginEnd="10dp"
         android:text="Descripción"
-        android:textColor="@color/black"/>
+        android:textSize="20sp"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/tipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
         android:layout_below="@id/descrip"
         android:layout_toEndOf="@id/imagen"
+        android:layout_marginTop="4dp"
         android:text="Tipo"
+        android:textSize="18sp"
         android:textColor="@color/black"
-        android:background="@drawable/rounded_background"/>
+        android:background="@drawable/rounded_background" />
 
-    <LinearLayout
+    <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/black"
+        android:layout_below="@id/tipo"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/tipo"/>
+        android:background="@color/black" />
+
 </RelativeLayout>

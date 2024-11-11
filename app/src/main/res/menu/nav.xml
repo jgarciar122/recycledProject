@@ -2,12 +2,14 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <itemComida android:title="Home"
+    <item android:title="Home"
         android:icon="@drawable/home"
         android:id="@+id/navigation_home"/>
-    <itemComida android:title="Profile"
-        android:icon="@drawable/favorito"/>
-    <itemComida android:title="Settings"
-        android:icon="@drawable/favorito"/>
+    <item android:title="Profile"
+        android:icon="@drawable/favorito"
+        android:id="@+id/favorito"/>
+    <item android:title="Settings"
+        android:icon="@drawable/favorito"
+        android:id="@+id/random"/>
 
 </menu>

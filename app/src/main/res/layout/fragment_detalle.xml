@@ -5,13 +5,13 @@
     android:padding="16dp">
 
     <ImageView
-        android:id="@+id/imageViewDetalle"
+        android:id="@+id/imagenViewDetalle"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop" />
 
     <TextView
-        android:id="@+id/textViewNombreDetalle"
+        android:id="@+id/nombreViewDetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
@@ -19,8 +19,22 @@
         android:layout_marginTop="16dp" />
 
     <TextView
-        android:id="@+id/textViewDescripcionDetalle"
+        android:id="@+id/descripViewDetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tipoViewDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver" />
+
+
 </LinearLayout>

@@ -1,46 +1,51 @@
-
 package com.example.recyclerapp;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.recyclerapp.ItemComida;
 
 import java.util.ArrayList;
 
 public class ViewComida extends ViewModel {
-    private final MutableLiveData<ItemComida> selectedItem = new MutableLiveData<>();
-    private final MutableLiveData<ArrayList<ItemComida>> listFavoritos = new MutableLiveData<>(new ArrayList<>());
+//    private final MutableLiveData<Boolean> hayQueNavegar = new MutableLiveData<>(false);
+    private final MutableLiveData<ItemComida> comidaEscogida = new MutableLiveData<>();
+    private final MutableLiveData<ArrayList<ItemComida>> lFavoritos = new MutableLiveData<>(new ArrayList<>());
 
-
-    public void getSelectedItem(ItemComida itemComida) {
-        selectedItem.setValue(itemComida);
+    /**
+     * Este es el personaje que estamos viendo.
+     * @param personaje es el personaje que queremos observar.
+     */
+    public void escogerComida(ItemComida itemComida) {
+        comidaEscogida.setValue(itemComida);
+       // hayQueNavegar.setValue(true);
     }
 
-
-
-   /* public void toggleFavorito(Item item) {
-        ArrayList<Item> favoritos = listFavoritos.getValue();
-        if (favoritos != null) {
-            if (favoritos.contains(item)) {
-                favoritos.remove(item);
-
+    /**
+     * Con este metodo activamos a un personaje como favorito.
+     * @param personaje es el personaje que vamos a activar.
+     */
+    public void activarFavorito(ItemComida itemComida) {
+        ArrayList<ItemComida> favoritos = lFavoritos.getValue();
+        if(favoritos != null) {
+            if(favoritos.contains(itemComida)) {
+                favoritos.remove(itemComida);
             } else {
-                favoritos.add(item);
+                favoritos.add(itemComida);
             }
-            listFavoritos.setValue(favoritos); // Actualiza la lista
+            lFavoritos.setValue(favoritos);
         }
-    }*/
-
-
-    public LiveData<ItemComida>getSelectedItem(){
-        return selectedItem;
     }
 
-   /* public void limpiarSeleccion() {
-        selectedItem.setValue(null); // Limpia la selección
+    public void eliminarSeleccion() {
+        comidaEscogida.setValue(null);
     }
 
-    public LiveData<ArrayList<Item>> getListFavoritos() {
-        return listFavoritos;
-    }*/
+    public MutableLiveData<ItemComida> getComidaEscogida() {
+        return comidaEscogida;
+    }
+
+    public MutableLiveData<ArrayList<ItemComida>> getlFavoritos() {
+        return lFavoritos;
+    }
 }
