@@ -17,13 +17,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new PizzaFragment();
+                return new FragmentPizza();
             case 1:
-                return new HamburguesaFragment();
+                return new FragmentHamburguesa();
             case 2:
-                return new EnsaladaFragment();
+                return new FragmentEnsalada();
             default:
-                return new PizzaFragment();
+                return new FragmentPizza();
         }
     }
 

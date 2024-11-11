@@ -9,34 +9,37 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-public class EnsaladaFragment extends Fragment {
+import com.example.recyclerapp.databinding.FragmentHamburguesaBinding;
 
-    private RecyclerView recyclerView;
+public class FragmentHamburguesa extends Fragment {
+
+    private FragmentHamburguesaBinding binding;
     private Adaptador adaptador;
 
-    public EnsaladaFragment() {
-        // Constructor vacío
+    public FragmentHamburguesa() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflamos el layout del fragmento
-        return inflater.inflate(R.layout.fragment_ensalada, container, false);
+        binding = FragmentHamburguesaBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Configuración del RecyclerView
-        recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Crear el adaptador con la lista de pizzas
-        adaptador = new Adaptador(getContext(), Comida.ensaladas);
-        recyclerView.setAdapter(adaptador);
+        adaptador = new Adaptador(getContext(), Comida.hamburguesas);
+        binding.recyclerView.setAdapter(adaptador);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

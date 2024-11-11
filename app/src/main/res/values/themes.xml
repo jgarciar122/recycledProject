@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.RecyclerApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- <itemComida name="colorPrimary">@color/my_light_primary</itemComida> -->
     </style>
 
     <style name="Theme.RecyclerApp" parent="Base.Theme.RecyclerApp" />

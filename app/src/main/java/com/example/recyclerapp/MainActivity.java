@@ -4,13 +4,20 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.recyclerapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import com.example.recyclerapp.ViewComida;
+
 public class MainActivity extends AppCompatActivity {
+
+    ActivityMainBinding binding;
+    ViewComida viewComida;
 
     private ViewPager2 viewPager;
     private TabLayout tabLayout;
@@ -19,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        //Confguración ViewComida
+        viewComida = new ViewModelProvider(this).get(ViewComida.class);
+
 
         // Configurar la Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -46,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     tab.setText("Ensaladas");
                     break;
             }
-        }).attach();
+        }).attach(); //He usado el método attach para que el TabLayout escuche los cambios de posición del ViewPager2 y viceversa
+
 
         // Configurar el BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

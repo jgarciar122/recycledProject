@@ -7,12 +7,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class View_holder extends RecyclerView.ViewHolder {
+public class ViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imagenView;
     TextView nombreView, descripView, tipoView;
 
-    public View_holder(@NonNull View itemView) {
+    public ViewHolder(@NonNull View itemView) {
         super(itemView);
         imagenView = itemView.findViewById(R.id.imagen);
         nombreView = itemView.findViewById(R.id.nombre);

@@ -1,14 +1,14 @@
 
 package com.example.recyclerapp;
 
-public class Item {
+public class ItemComida {
 
     String nombre;
     String descripcion;
     int image;
     String tipo;
 
-    public Item(String nombre, String descripcion, int image, String tipo) {
+    public ItemComida(String nombre, String descripcion, int image, String tipo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.image = image;
