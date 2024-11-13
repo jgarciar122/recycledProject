@@ -1,4 +1,4 @@
-package com.example.recyclerapp;
+package com.example.recyclerapp.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.recyclerapp.databinding.FragmentPizzaBinding;
+import com.example.recyclerapp.Adaptador;
+import com.example.recyclerapp.ListaComida;
+import com.example.recyclerapp.databinding.FragmentEnsaladaBinding;
 
-public class FragmentPizza extends Fragment {
+public class FragmentEnsalada extends Fragment {
 
-    private FragmentPizzaBinding binding;
+    private FragmentEnsaladaBinding binding;
     private Adaptador adaptador;
 
-    public FragmentPizza() {
+    public FragmentEnsalada() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentPizzaBinding.inflate(inflater, container, false);
+        binding = FragmentEnsaladaBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -34,8 +36,8 @@ public class FragmentPizza extends Fragment {
         // Configuración del RecyclerView
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Crear el adaptador con la lista de pizzas
-        adaptador = new Adaptador(getContext(), ListaComida.pizzas);
+        // Crear el adaptador con la lista de ensaladas
+        adaptador = new Adaptador(getContext(), ListaComida.ensaladas);
         binding.recyclerView.setAdapter(adaptador);
     }
 

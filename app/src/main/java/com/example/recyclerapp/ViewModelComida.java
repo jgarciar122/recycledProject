@@ -1,47 +1,49 @@
+
 package com.example.recyclerapp;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ViewModelComida extends ViewModel {
+    private final MutableLiveData<ItemComida> comidaSeleccionada = new MutableLiveData<>();
+    private final MutableLiveData<ArrayList<ItemComida>> listaFavoritos = new MutableLiveData<>(new ArrayList<>());
 
-    private MutableLiveData<List<ItemComida>> pizzas = new MutableLiveData<>();
-    private MutableLiveData<List<ItemComida>> hamburguesas = new MutableLiveData<>();
-    private MutableLiveData<List<ItemComida>> ensaladas = new MutableLiveData<>();
 
-    public ViewModelComida() {
-        // Inicializamos las listas con los datos de ListaComida
-        pizzas.setValue(ListaComida.pizzas);
-        hamburguesas.setValue(ListaComida.hamburguesas);
-        ensaladas.setValue(ListaComida.ensaladas);
+    /*
+    Uso de la lcase ViewModel para menajear el estado de los personaje mostrados
+     */
+    public void seleccionarComida(ItemComida itemComida) {
+        comidaSeleccionada.setValue(itemComida);
     }
 
-    // Métodos para obtener las listas como LiveData
-    public LiveData<List<ItemComida>> getPizzas() {
-        return pizzas;
+
+
+    public void toggleFavorito(ItemComida itemComida) {
+        ArrayList<ItemComida> favoritos = listaFavoritos.getValue();
+        if (favoritos != null) {
+            if (favoritos.contains(itemComida)) {
+                favoritos.remove(itemComida);
+
+            } else {
+                favoritos.add(itemComida);
+            }
+            listaFavoritos.setValue(favoritos); // Actualiza la lista
+        }
     }
 
-    public LiveData<List<ItemComida>> getHamburguesas() {
-        return hamburguesas;
+
+    public LiveData<ItemComida>getComidaSeleccionada(){
+        return comidaSeleccionada;
     }
 
-    public LiveData<List<ItemComida>> getEnsaladas() {
-        return ensaladas;
+    public void limpiarSeleccion() {
+        comidaSeleccionada.setValue(null); // Limpia la selección
     }
 
-    // Método para actualizar las listas si es necesario (por ejemplo, al modificar la lista)
-    public void setPizzas(List<ItemComida> newPizzas) {
-        pizzas.setValue(newPizzas);
-    }
-
-    public void setHamburguesas(List<ItemComida> newHamburguesas) {
-        hamburguesas.setValue(newHamburguesas);
-    }
-
-    public void setEnsaladas(List<ItemComida> newEnsaladas) {
-        ensaladas.setValue(newEnsaladas);
+    public LiveData<ArrayList<ItemComida>> getListaFavoritos() {
+        return listaFavoritos;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.recyclerapp;
+package com.example.recyclerapp.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.recyclerapp.R;
 import com.example.recyclerapp.databinding.FragmentDetalleBinding;
 
 public class FragmentDetalle extends Fragment {

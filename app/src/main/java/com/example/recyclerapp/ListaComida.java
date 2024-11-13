@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ListaComida {
 
-    public static List<ItemComida> pizzas = new ArrayList<>();
-    public static List<ItemComida> hamburguesas = new ArrayList<>();
-    public static List<ItemComida> ensaladas = new ArrayList<>();
+    public static ArrayList<ItemComida> pizzas = new ArrayList<ItemComida>();
+    public static ArrayList<ItemComida> hamburguesas = new ArrayList<ItemComida>();
+    public static ArrayList<ItemComida> ensaladas = new ArrayList<ItemComida>();
 
     static {
         // Pizzas
@@ -46,4 +46,29 @@ public class ListaComida {
         ensaladas.add(new ItemComida("Ensalada Oriental", "Lechuga, zanahoria, pollo y salsa de sésamo", R.drawable.ensalada_oriental, "Ensalada"));
         ensaladas.add(new ItemComida("Ensalada de Col", "Col, zanahoria y mayonesa", R.drawable.ensalada_col, "Ensalada"));
     }
+
+    public static ArrayList<ItemComida> get_lPizza() {
+        return pizzas;
+    }
+
+    public static void set_lpizza(ArrayList<ItemComida> pizzas) {
+        ListaComida.pizzas = pizzas;
+    }
+
+    public static ArrayList<ItemComida> get_lHamburguesas() {
+        return hamburguesas;
+    }
+
+    public static void set_lHamburguesas(ArrayList<ItemComida> hamburguesas) {
+        ListaComida.hamburguesas = hamburguesas;
+    }
+
+    public static ArrayList<ItemComida> get_lEnsalada() {
+        return ensaladas;
+    }
+
+    public static void set_lEnsalada(ArrayList<ItemComida> ensaladas) {
+        ListaComida.ensaladas = ensaladas;
+    }
+
 }
