@@ -1,65 +1,41 @@
 package com.example.recyclerapp;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.example.recyclerapp.ViewComida;
+import androidx.fragment.app.Fragment;
+
 import com.example.recyclerapp.databinding.FragmentDetalleBinding;
 
-
 public class FragmentDetalle extends Fragment {
-    private FragmentDetalleBinding binding;
-    private ViewComida viewComida;
+    private TextView nombreTextView;
+    private TextView descripcionTextView;
+    private TextView tipoTextView;
 
-    public FragmentDetalle() {}
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    FragmentDetalleBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentDetalleBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-    }
+        View view = inflater.inflate(R.layout.fragment_detalle, container, false);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        nombreTextView = view.findViewById(R.id.nombreViewDetalle);
+        descripcionTextView = view.findViewById(R.id.descripViewDetalle);
+        tipoTextView = view.findViewById(R.id.tipoViewDetalle);
 
-        viewComida = new ViewModelProvider(requireActivity()).get(ViewComida.class);
-        viewComida.getComidaEscogida().observe(getViewLifecycleOwner(), itemComida -> {
-            if(itemComida != null) {
-                binding.nombreViewDetalle.setText(itemComida.getNombre());
-                binding.imagenViewDetalle.setImageResource(itemComida.getImage());
-                binding.descripViewDetalle.setText(itemComida.getDescripcion());
-                binding.tipoViewDetalle.setText(itemComida.getTipo());
-            }
-        });
+        // Obtener los argumentos y mostrar los datos
+        if (getArguments() != null) {
+            String nombre = getArguments().getString("nombre");
+            String descripcion = getArguments().getString("descripcion");
+            String tipo = getArguments().getString("tipo");
 
-        //Con esto comprobamos como está orientado (si horizontal o vertical):
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            binding.backButton.setVisibility(View.VISIBLE);
-            binding.backButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    viewComida.eliminarSeleccion();
-                    NavController navController = Navigation.findNavController(view);
-                    navController.popBackStack();
-                }
-            });
+            nombreTextView.setText(nombre);
+            descripcionTextView.setText(descripcion);
+            tipoTextView.setText(tipo);
         }
+
+        return view;
     }
 }

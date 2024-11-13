@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -12,12 +14,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import com.example.recyclerapp.ViewComida;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Adaptador.OnItemClickListener {
 
     ActivityMainBinding binding;
-    ViewComida viewComida;
+    ViewModelComida viewModelComida;
 
     private ViewPager2 viewPager;
     private TabLayout tabLayout;
@@ -27,10 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //Confguración ViewComida
-        viewComida = new ViewModelProvider(this).get(ViewComida.class);
-
+        // Configuración ViewModelComida
+        viewModelComida = new ViewModelProvider(this).get(ViewModelComida.class);
 
         // Configurar la Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -58,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     tab.setText("Ensaladas");
                     break;
             }
-        }).attach(); //He usado el método attach para que el TabLayout escuche los cambios de posición del ViewPager2 y viceversa
-
+        }).attach();
 
         // Configurar el BottomNavigationView
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -75,5 +72,25 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         }
+    }
+
+    // Implementación del listener de clic en los elementos del RecyclerView
+    @Override
+    public void onItemClick(ItemComida itemComida) {
+        // Crear el fragmento de detalles
+        FragmentDetalle fragmentDetalle = new FragmentDetalle();
+
+        // Pasar los datos del alimento seleccionado al fragmento
+        Bundle args = new Bundle();
+        args.putString("nombre", itemComida.getNombre());
+        args.putString("descripcion", itemComida.getDescripcion());
+        args.putString("tipo", itemComida.getTipo());
+        fragmentDetalle.setArguments(args);
+
+        // Realizar la transición al DetallesFragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragmentDetalle);
+        transaction.addToBackStack(null);  // Añadir a la pila de retroceso para poder volver atrás
+        transaction.commit();
     }
 }

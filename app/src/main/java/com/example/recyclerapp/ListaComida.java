@@ -3,7 +3,7 @@ package com.example.recyclerapp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comida {
+public class ListaComida {
 
     public static List<ItemComida> pizzas = new ArrayList<>();
     public static List<ItemComida> hamburguesas = new ArrayList<>();

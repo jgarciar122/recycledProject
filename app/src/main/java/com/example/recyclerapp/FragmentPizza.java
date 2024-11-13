@@ -35,7 +35,7 @@ public class FragmentPizza extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Crear el adaptador con la lista de pizzas
-        adaptador = new Adaptador(getContext(), Comida.pizzas);
+        adaptador = new Adaptador(getContext(), ListaComida.pizzas);
         binding.recyclerView.setAdapter(adaptador);
     }
 

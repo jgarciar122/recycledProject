@@ -33,7 +33,7 @@ public class FragmentHamburguesa extends Fragment {
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adaptador = new Adaptador(getContext(), Comida.hamburguesas);
+        adaptador = new Adaptador(getContext(), ListaComida.hamburguesas);
         binding.recyclerView.setAdapter(adaptador);
     }
 

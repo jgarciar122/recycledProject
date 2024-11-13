@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -14,21 +13,21 @@ import java.util.List;
 
 public class Adaptador extends RecyclerView.Adapter<ViewHolder> {
     private Context context;
-    private List<ItemComida> itemComidas;
+    private List<ItemComida> itemComida;
     private OnItemClickListener listener;
 
     // Constructor
-    public Adaptador(Context context, List<ItemComida> itemComidas) {
+    public Adaptador(Context context, List<ItemComida> itemComida) {
         this.context = context;
-        this.itemComidas = itemComidas;
+        this.itemComida = itemComida;
     }
 
     // Interfaz para manejar los clics en los ítems
     public interface OnItemClickListener {
-        void onItemClick(ItemComida itemComida); // Cambié Comida a Item para que coincida con tu lista de items
+        void onItemClick(ItemComida itemComida);
     }
 
-    // Método para establecer el listener
+    // Método para establecer el listener desde el fragmento o actividad
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
@@ -41,7 +40,7 @@ public class Adaptador extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ItemComida currentItemComida = itemComidas.get(position);
+        ItemComida currentItemComida = itemComida.get(position);
 
         // Configura las vistas con los datos del ítem
         holder.nombreView.setText(currentItemComida.getNombre());
@@ -73,18 +72,15 @@ public class Adaptador extends RecyclerView.Adapter<ViewHolder> {
         }
 
         // Configura el clic en el elemento
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onItemClick(currentItemComida);
-                }
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(currentItemComida);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return itemComidas.size();
+        return itemComida.size();
     }
 }

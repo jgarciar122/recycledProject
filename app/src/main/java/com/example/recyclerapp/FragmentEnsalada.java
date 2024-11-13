@@ -35,7 +35,7 @@ public class FragmentEnsalada extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Crear el adaptador con la lista de ensaladas
-        adaptador = new Adaptador(getContext(), Comida.ensaladas);
+        adaptador = new Adaptador(getContext(), ListaComida.ensaladas);
         binding.recyclerView.setAdapter(adaptador);
     }
 
